@@ -78,7 +78,7 @@
                     uploaded: false
                 },
                 mounted() {
-                    console.log("window.location = ",window.location)
+
                     this.init()
                 },
                 methods: {
@@ -112,6 +112,7 @@
                     },
                     navToSignature() {
                         console.log("去签名")
+                        console.log("window.location = ",window.location)
                         // wx.miniProgram.navigateTo({url: '/sub2_package/pages/contractsignature/contractsignature',
                         //     complete:res=>{console.log(res)}
                         // })
