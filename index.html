@@ -111,7 +111,9 @@
                     },
                     navToSignature() {
                         console.log("去签名")
-                        wx.miniProgram.navigateTo({url: '/sub2_package/pages/contractsignature/contractsignature'})
+                        wx.miniProgram.navigateTo({url: '/sub2_package/pages/contractsignature/contractsignature',
+                                                   complete:res=>{console.log(res)}
+                                                  })
                     },
                     uploadContractInfo() {
                         console.log("上传合同")
