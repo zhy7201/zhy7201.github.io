@@ -75,7 +75,7 @@
                 el: '#app',
                 data: {
                     pageTotal: 0,
-                    uploaded: true,
+                    uploaded: false,
                     pdfURL: ""
                 },
                 mounted() {
@@ -102,7 +102,7 @@
                     },
                     init() {
                         pdfjsLib.GlobalWorkerOptions.workerSrc = './pdf.worker.js';
-                        let loadingTask = pdfjsLib.getDocument("https://github.com/zhy7201/zhy7201.github.io/blob/main/test.pdf");
+                        let loadingTask = pdfjsLib.getDocument(this.pdfURL);
                         loadingTask.promise.then(pdf => {
                             this.pageTotal = pdf.numPages
                             for (let i = 0; i < pdf.numPages; i++) {
@@ -143,6 +143,11 @@
                     uploadContractInfo() {
                         console.log("上传合同")
                         console.log("window.location = ", window.location)
+                        console.log("window.location = ", window.location)
+                        let para = this.getPara(window.location.search);
+                        this.uploaded = para.uploaded
+                        this.pdfURL = para.pdfURL
+                        this.init()
                     }
                 },
             })
