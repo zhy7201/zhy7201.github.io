@@ -83,7 +83,7 @@
                 },
                 methods: {
                     init() {
-                        let url = 'https://github.com/zhy7201/zhy7201.github.io/blob/main/test.pdf';
+                        let url = 'http://192.18.0.174:9000/000000-contract/upload/20210529/094ae76f7904b33dec3fa01bd265e879.pdf';
                         pdfjsLib.GlobalWorkerOptions.workerSrc = './pdf.worker.js';
                         let loadingTask = pdfjsLib.getDocument(url);
                         loadingTask.promise.then(pdf => {
