@@ -79,11 +79,13 @@
                     pdfURL: ""
                 },
                 mounted() {
-                    console.log("window.location = ", window.location)
-                    let para = this.getPara(window.location.search);
-                    this.uploaded = para.uploaded
-                    this.pdfURL = para.pdfURL
-                    this.init()
+                    setTimeout(() => {
+                        console.log("window.location = ", window.location)
+                        let para = this.getPara(window.location.search);
+                        this.uploaded = para.uploaded
+                        this.pdfURL = para.pdfURL
+                        this.init()
+                    }, 200);
                 },
                 methods: {
                     getPara(href) {
