@@ -104,7 +104,7 @@
                     },
                     init() {
                         pdfjsLib.GlobalWorkerOptions.workerSrc = './pdf.worker.js';
-                        let loadingTask = pdfjsLib.getDocument(this.pdfURL);
+                        let loadingTask = pdfjsLib.getDocument('https://resource.erp.leyunshe.com.cn/000000-lejia/upload/20210608/fc82147c279e0b6c20138d0e701e9685.pdf');
                         loadingTask.promise.then(pdf => {
                             this.pageTotal = pdf.numPages
                             for (let i = 0; i < pdf.numPages; i++) {
