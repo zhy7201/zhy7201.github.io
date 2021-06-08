@@ -84,7 +84,7 @@
                         console.log("window.location = ", window.location)
                         let para = this.getPara(window.location.search);
                         console.log('para = ',para)
-                        this.uploaded = Boolean(para.uploaded)
+                        this.uploaded = para.uploaded === "true"
                         this.pdfURL = para.pdfURL
                         this.init()
                     })
