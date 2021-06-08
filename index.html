@@ -80,26 +80,27 @@
                 },
                 mounted() {
                     console.log("================= mounted ======= ")
-                    // this.$nextTick(function () {
-                    //     console.log("window.location = ", window.location)
-                    //     let para = this.getPara(window.location.search);
-                    //     this.uploaded = para.uploaded
-                    //     this.pdfURL = para.pdfURL
-                         this.init()
-                    // })
+                    this.$nextTick(function () {
+                        console.log("window.location = ", window.location)
+                        let para = this.getPara(window.location.search);
+                        console.log('para = ',para)
+                        this.uploaded = Boolean(para.uploaded)
+                        this.pdfURL = para.pdfURL
+                        this.init()
+                    })
                 },
                 methods: {
-                    // getPara(href) {
-                    //     let params = href.split("?")[1];
-                    //     let paramArr = params.split('&');
-                    //     let res = {};
-                    //     for (let i = 0; i < paramArr.length; i++) {
-                    //         let str = paramArr[i].split('=');
-                    //         res[str[0]] = str[1];
-                    //     }
-                    //     console.log(res)
-                    //     return res
-                    // },
+                    getPara(href) {
+                        let params = href.split("?")[1];
+                        let paramArr = params.split('&');
+                        let res = {};
+                        for (let i = 0; i < paramArr.length; i++) {
+                            let str = paramArr[i].split('=');
+                            res[str[0]] = str[1];
+                        }
+                        console.log(res)
+                        return res
+                    },
                     init() {
                         pdfjsLib.GlobalWorkerOptions.workerSrc = './pdf.worker.js';
                         let loadingTask = pdfjsLib.getDocument('test.pdf');
