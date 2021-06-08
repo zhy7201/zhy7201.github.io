@@ -76,7 +76,8 @@
                 data: {
                     pageTotal: 0,
                     uploaded: false,
-                    pdfURL: ""
+                    pdfURL: "",
+                    signPicUrl:""
                 },
                 mounted() {
                     console.log("================= mounted ======= ")
@@ -86,6 +87,7 @@
                         console.log('para = ',para)
                         this.uploaded = para.uploaded === "true"
                         this.pdfURL = para.pdfURL
+                        this.signPicUrl = para.signPicUrl
                         this.init()
                     })
                 },
@@ -130,7 +132,6 @@
                     },
                     navToSignature() {
                         console.log("去签名")
-
                         // wx.miniProgram.navigateTo({url: '/sub2_package/pages/contractsignature/contractsignature',
                         //     complete:res=>{console.log(res)}
                         // })
@@ -142,6 +143,10 @@
                         })
                     },
                     uploadContractInfo() {
+                        if(!this.signPicUrl) {
+                            console.log('请先签名')
+                            return
+                        }
                         console.log("上传合同")
                         console.log("window.location = ", window.location)
                         // console.log("window.location = ", window.location)
