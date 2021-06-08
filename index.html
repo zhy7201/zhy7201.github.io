@@ -100,12 +100,11 @@
                             let str = paramArr[i].split('=');
                             res[str[0]] = str[1];
                         }
-                        console.log(res)
                         return res
                     },
                     init() {
                         pdfjsLib.GlobalWorkerOptions.workerSrc = './pdf.worker.js';
-                        let loadingTask = pdfjsLib.getDocument('test.pdf');
+                        let loadingTask = pdfjsLib.getDocument(this.pdfURL);
                         loadingTask.promise.then(pdf => {
                             this.pageTotal = pdf.numPages
                             for (let i = 0; i < pdf.numPages; i++) {
